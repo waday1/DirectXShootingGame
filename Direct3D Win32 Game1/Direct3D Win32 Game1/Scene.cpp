@@ -20,3 +20,9 @@ void Scene::Update()
 	cout << "Scene";
 	printf("Scene");
 }
+
+void Scene::Render()
+{
+	cout << "Scene";
+	printf("Scene");
+}

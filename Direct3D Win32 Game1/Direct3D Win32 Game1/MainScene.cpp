@@ -18,3 +18,8 @@ void MainScene::Update()
 {
 	cout << "MainScene";
 }
+
+void MainScene::Render()
+{
+	cout << "Scene";
+}

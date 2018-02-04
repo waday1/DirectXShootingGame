@@ -10,5 +10,6 @@ public:
 
 public:
 	void Update();
+	void Render();
 };
 

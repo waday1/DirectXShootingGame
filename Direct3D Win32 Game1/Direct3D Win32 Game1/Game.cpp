@@ -58,9 +58,10 @@ void Game::Update(DX::StepTimer const& timer)
 {
     float elapsedTime = float(timer.GetElapsedSeconds());
 
+    // TODO: Add your game logic here.
+
 	scene->Update();
 
-    // TODO: Add your game logic here.
     elapsedTime;
 }
 
@@ -76,6 +77,8 @@ void Game::Render()
     Clear();
 
     // TODO: Add your rendering code here.
+
+	scene->Render();
 
     Present();
 }
