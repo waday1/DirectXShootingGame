@@ -10,6 +10,7 @@
 extern void ExitGame();
 
 using namespace DirectX;
+using namespace DirectX::SimpleMath;
 
 using Microsoft::WRL::ComPtr;
 
@@ -77,6 +78,16 @@ void Game::Render()
     Clear();
 
     // TODO: Add your rendering code here.
+	m_spriteBatch->Begin();
+
+	const wchar_t* output = L"Hello World";
+
+	Vector2 origin = m_font->MeasureString(output) / 2.f;
+
+	m_font->DrawString(m_spriteBatch.get(), output,
+		m_fontPos, Colors::White, 0.f, origin);
+
+	m_spriteBatch->End();
 
 	scene->Render();
 
@@ -222,6 +233,8 @@ void Game::CreateDevice()
     DX::ThrowIfFailed(context.As(&m_d3dContext));
 
     // TODO: Initialize device dependent objects here (independent of window size).
+	m_font = std::make_unique<SpriteFont>(m_d3dDevice.Get(), L"myfile.spritefont");
+	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.
@@ -318,6 +331,8 @@ void Game::CreateResources()
     DX::ThrowIfFailed(m_d3dDevice->CreateDepthStencilView(depthStencil.Get(), &depthStencilViewDesc, m_depthStencilView.ReleaseAndGetAddressOf()));
 
     // TODO: Initialize windows-size dependent objects here.
+	m_fontPos.x = backBufferWidth / 2.f;
+	m_fontPos.y = backBufferHeight / 2.f;
 }
 
 void Game::OnDeviceLost()
@@ -330,7 +345,11 @@ void Game::OnDeviceLost()
     m_d3dContext.Reset();
     m_d3dDevice.Reset();
 
+	m_font.reset();
+
     CreateDevice();
 
     CreateResources();
+
+	m_spriteBatch.reset();
 }
