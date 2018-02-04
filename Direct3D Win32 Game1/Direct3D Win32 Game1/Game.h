@@ -5,6 +5,7 @@
 #pragma once
 
 #include "StepTimer.h"
+#include"Scene.h"
 
 
 // A basic game implementation that creates a D3D11 device and
@@ -59,4 +60,5 @@ private:
 
     // Rendering loop timer.
     DX::StepTimer                                   m_timer;
+	Scene* scene;
 };

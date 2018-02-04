@@ -5,6 +5,8 @@
 #include "pch.h"
 #include "Game.h"
 
+#include"MainScene.h"
+
 extern void ExitGame();
 
 using namespace DirectX;
@@ -25,6 +27,8 @@ void Game::Initialize(HWND window, int width, int height)
     m_window = window;
     m_outputWidth = std::max(width, 1);
     m_outputHeight = std::max(height, 1);
+
+	scene =new MainScene();
 
     CreateDevice();
 
@@ -53,6 +57,8 @@ void Game::Tick()
 void Game::Update(DX::StepTimer const& timer)
 {
     float elapsedTime = float(timer.GetElapsedSeconds());
+
+	scene->Update();
 
     // TODO: Add your game logic here.
     elapsedTime;
