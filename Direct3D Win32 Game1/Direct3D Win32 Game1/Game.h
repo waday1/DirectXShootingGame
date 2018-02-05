@@ -62,7 +62,4 @@ private:
     DX::StepTimer                                   m_timer;
 
 	Scene* scene;
-	std::unique_ptr<DirectX::SpriteFont> m_font;
-	DirectX::SimpleMath::Vector2 m_fontPos;
-	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
 };
