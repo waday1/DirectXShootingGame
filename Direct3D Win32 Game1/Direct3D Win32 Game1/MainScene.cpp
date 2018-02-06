@@ -4,6 +4,7 @@
 #include<iostream>
 #include"Player.h"
 #include "Enemy.h"
+#include < wchar.h > 
 
 using namespace std;
 using namespace DirectX;
@@ -44,7 +45,8 @@ void MainScene::CreateResources(UINT backBufferWidth, UINT backBufferHeight)
 
 void MainScene::Update(DX::StepTimer const& timer)
 {
-	player->Update(timer);
+	player->Update(timer,shotManager);
+	shotManager->Update(timer);
 }
 
 void MainScene::Render()
@@ -64,7 +66,13 @@ void MainScene::Render()
 
 	Vector2 origin = m_font->MeasureString(output) / 2.f;
 
-	m_font->DrawString(m_spriteBatch.get(), output,m_fontPos, Colors::White, 0.f, origin);
+
+	wchar_t wStr[12];//•ÏŠ·Œã‚Ì•¶Žš—ñ
+	_itow_s(shotManager->GetShot(1).GetPosition().x, wStr, 10);//•ÏŠ·—pŠÖ”
+	m_font->DrawString(m_spriteBatch.get(), wStr, Vector2(200,100), Colors::White, 0.f, origin);
+
+	_itow_s(shotManager->GetShot(1).GetPosition().y, wStr, 10);//•ÏŠ·—pŠÖ”
+	m_font->DrawString(m_spriteBatch.get(), wStr, Vector2(400, 100), Colors::White, 0.f, origin);
 
 	enemy->Render(m_spriteBatch.get());
 

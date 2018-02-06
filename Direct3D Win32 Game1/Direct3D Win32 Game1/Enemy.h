@@ -9,6 +9,6 @@ public:
 		float speed, float scale,
 		const wchar_t * filename, bool isAlive);
 	~Enemy();
-	void Update(DX::StepTimer const& timer);
+	void Update(DX::StepTimer const& timer, ShotManager* shotmanager);
 };
 

@@ -25,10 +25,11 @@ Player::~Player()
 	delete texture;
 }
 
-void Player::Update(DX::StepTimer const& timer)
+void Player::Update(DX::StepTimer const& timer, ShotManager* shotmanager)
 {
 	//StepTimer‚Å1ƒtƒŒ[ƒ€‚ ‚½‚è‚ÌŽžŠÔ‚ð‚Æ‚é
 	Move(timer.GetElapsedSeconds());
+	Shot(shotmanager);
 }
 
 
@@ -53,4 +54,12 @@ void Player::Move(float fps)
 	}
 
 	MoveUpdate(vec*fps);
+}
+
+void Player::Shot(ShotManager * shotmanager)
+{
+	if (InputManager::IsKeyDown(Keyboard::Z))
+	{
+		shotmanager->SetShot(BaseShot(GetPosition(), 200, 1.0f, true));
+	}
 }

@@ -24,7 +24,7 @@ Enemy::~Enemy()
 	delete texture;
 }
 
-void Enemy::Update(DX::StepTimer const & timer)
+void Enemy::Update(DX::StepTimer const & timer, ShotManager* shotmanager)
 {
 }
 

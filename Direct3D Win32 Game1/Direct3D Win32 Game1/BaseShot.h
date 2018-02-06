@@ -7,7 +7,7 @@
 class BaseShot
 {
 public:
-	BaseShot(DirectX::SimpleMath::Vector2 pos = DirectX::SimpleMath::Vector2::Zero, float speed = 0, float scale = 0, bool isAlive = false);
+	BaseShot(DirectX::SimpleMath::Vector2 pos= DirectX::SimpleMath::Vector2::Zero, float speed = 0, float scale = 0, bool isAlive = false);
 	~BaseShot();
 	virtual void Update(DX::StepTimer const& timer);
 	virtual void Render(DirectX::SpriteBatch*, Texture* texture);
@@ -23,7 +23,7 @@ public:
 	void SetSpeed(float speed) { this->speed = speed; }
 
 	bool GetIsAlive() { return isAlive; }
-	void SetIsAlive() { this->isAlive = isAlive; }
+	void SetIsAlive(bool isAlive) { this->isAlive = isAlive; }
 
 private:
 	DirectX::SimpleMath::Vector2 position;

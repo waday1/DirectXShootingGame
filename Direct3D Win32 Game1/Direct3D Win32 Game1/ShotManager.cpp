@@ -23,6 +23,17 @@ ShotManager::~ShotManager()
 	delete texture;
 }
 
+void ShotManager::Update(DX::StepTimer const & timer)
+{
+	for (int i = 0; i < GetMaxShotCount(); i++)
+	{
+		if (shot[i].GetIsAlive())
+		{
+			shot[i].Update(timer);
+		}
+	}
+}
+
 void ShotManager::Render(DirectX::SpriteBatch * spriteBatch)
 {
 	for (int i = 0; i <MaxShotCount; i++)

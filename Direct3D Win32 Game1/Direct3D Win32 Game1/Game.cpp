@@ -64,6 +64,12 @@ void Game::Update(DX::StepTimer const& timer)
     // TODO: Add your game logic here.
 	InputManager::Update();
 
+	//ƒQ[ƒ€I—¹
+	if (InputManager::IsJustKeyDown(Keyboard::Escape))
+	{
+		PostQuitMessage(0);
+	}
+
 	scene->Update(timer);
 
     elapsedTime;

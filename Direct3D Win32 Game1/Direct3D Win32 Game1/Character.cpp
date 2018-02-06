@@ -32,7 +32,7 @@ Character::~Character()
 	delete texture;
 }
 
-void Character::Update(DX::StepTimer const& timer)
+void Character::Update(DX::StepTimer const& timer, ShotManager* shotmanager)
 {
 }
 

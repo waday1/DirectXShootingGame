@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "StepTimer.h"
 #include"Texture.h"
+#include"ShotManager.h"
 ///<summry>
 ///プレイヤーと敵の基底クラス
 ///</summary>
@@ -11,7 +12,7 @@ public:
 	Character();
 	Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed,float scale, const wchar_t * filename,bool isAlive);
 	~Character();
-	virtual void Update(DX::StepTimer const& timer) ;
+	virtual void Update(DX::StepTimer const& timer,ShotManager* shotmanager) ;
 	void Render(DirectX::SpriteBatch*) ;
 	void MoveUpdate(DirectX::SimpleMath::Vector2 vec);
 
