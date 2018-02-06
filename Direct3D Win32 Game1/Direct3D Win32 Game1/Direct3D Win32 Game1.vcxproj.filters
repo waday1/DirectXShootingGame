@@ -8,6 +8,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{947b49a4-57c0-42c6-a59d-34d7490d1f34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Character">
+      <UniqueIdentifier>{cf207b3e-4e65-46b7-837b-e88404763a54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -19,6 +22,13 @@
     <ClInclude Include="MainScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Character.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -29,6 +39,13 @@
     </ClCompile>
     <ClCompile Include="MainScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Character.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

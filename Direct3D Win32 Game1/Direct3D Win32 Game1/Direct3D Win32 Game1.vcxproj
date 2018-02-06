@@ -69,19 +69,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\wada\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\wada\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc;$(IncludePath);C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\wada\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\wada\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc;$(IncludePath);C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc;$(IncludePath);C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc;$(IncludePath);C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\DirectXTK\Inc</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -154,14 +154,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Character.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="MainScene.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="StepTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="pch.cpp">
@@ -170,6 +175,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>

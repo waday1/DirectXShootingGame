@@ -4,7 +4,7 @@
 
 #include "pch.h"
 #include "Game.h"
-
+#include"InputManager.h"
 #include"MainScene.h"
 
 extern void ExitGame();
@@ -31,16 +31,18 @@ void Game::Initialize(HWND window, int width, int height)
 
 	scene =new MainScene();
 
+	InputManager::Initialize();
+
     CreateDevice();
 
     CreateResources();
 
     // TODO: Change the timer settings if you want something other than the default variable timestep mode.
     // e.g. for 60 FPS fixed timestep update logic, call:
-    /*
+    
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
-    */
+    
 }
 
 // Executes the basic game loop.
@@ -60,8 +62,9 @@ void Game::Update(DX::StepTimer const& timer)
     float elapsedTime = float(timer.GetElapsedSeconds());
 
     // TODO: Add your game logic here.
+	InputManager::Update();
 
-	scene->Update();
+	scene->Update(timer);
 
     elapsedTime;
 }

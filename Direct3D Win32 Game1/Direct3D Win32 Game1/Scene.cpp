@@ -17,7 +17,7 @@ Scene::~Scene()
 }
 
 
-void Scene::Update()
+void Scene::Update(DX::StepTimer const& timer)
 {
 	cout << "Scene";
 	printf("Scene");

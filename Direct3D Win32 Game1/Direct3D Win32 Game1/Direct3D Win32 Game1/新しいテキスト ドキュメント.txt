@@ -1,0 +1,34 @@
+Microsoft Windows [Version 10.0.16299.125]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\wada>cd Desktop\DirectXShootingGame\Direct3D Win32 Game1
+
+C:\Users\wada\Desktop\DirectXShootingGame\Direct3D Win32 Game1>MakeSpriteFont
+Missing argument 'SourceFont'
+
+Usage: MakeSpriteFont <SourceFont> <OutputFile>
+
+Options:
+    /CharacterRegion:value
+    /DefaultCharacter:value
+    /FontSize:value
+    /FontStyle:value
+    /LineSpacing:value
+    /CharacterSpacing:value
+    /Sharp
+    /TextureFormat:value
+    /NoPremultiply
+    /DebugOutputSpriteSheet:value
+    /FeatureLevel:value
+    /FastPack
+
+C:\Users\wada\Desktop\DirectXShootingGame\Direct3D Win32 Game1>MakeSpriteFont "Courier New" myfile.spritefont /FontSize:32
+Importing Courier New
+Captured 95 glyphs
+Cropping glyph borders
+Packing glyphs into sprite sheet
+Packing efficiency 87.17672%
+Premultiplying alpha
+Writing myfile.spritefont (CompressedMono format)
+
+C:\Users\wada\Desktop\DirectXShootingGame\Direct3D Win32 Game1>
