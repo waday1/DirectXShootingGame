@@ -16,11 +16,11 @@ MainScene::~MainScene()
 {
 	m_font.reset();
 	m_spriteBatch.reset();
+	m_texture.Reset();
 }
 
 void MainScene::Update()
 {
-	cout << "MainScene";
 }
 
 void MainScene::Render()
@@ -33,7 +33,8 @@ void MainScene::Render()
 
 	m_font->DrawString(m_spriteBatch.get(), output,m_fontPos, Colors::White, 0.f, origin);
 	m_font->DrawString(m_spriteBatch.get(), L"Main", Vector2::Zero, Colors::Red, 0.f, Vector2::Zero);
-
+	m_spriteBatch->Draw(m_texture.Get(), m_screenPos, nullptr, Colors::White,
+		0.f, m_origin);
 	m_spriteBatch->End();
 }
 
@@ -41,10 +42,30 @@ void MainScene::CreateDevice(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, 
 {
 	m_font = std::make_unique<SpriteFont>(m_d3dDevice.Get(), L"myfile.spritefont");
 	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
+	DX::ThrowIfFailed(
+		CreateWICTextureFromFile(m_d3dDevice.Get(), L"cat.png", nullptr,
+			m_texture.ReleaseAndGetAddressOf())); m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
+
+	Microsoft::WRL::ComPtr<ID3D11Resource> resource;
+	DX::ThrowIfFailed(
+		CreateWICTextureFromFile(m_d3dDevice.Get(), L"cat.png",
+			resource.GetAddressOf(),
+			m_texture.ReleaseAndGetAddressOf()));
+
+	Microsoft::WRL::ComPtr<ID3D11Texture2D> cat;
+	DX::ThrowIfFailed(resource.As(&cat));
+
+	CD3D11_TEXTURE2D_DESC catDesc;
+	cat->GetDesc(&catDesc);
+
+	m_origin.x = float(catDesc.Width / 2);
+	m_origin.y = float(catDesc.Height / 2);
 }
 
 void MainScene::CreateResources(UINT backBufferWidth, UINT backBufferHeight)
 {
 	m_fontPos.x = backBufferWidth / 2.f;
-	m_fontPos.y = backBufferHeight / 2.f;
+	m_fontPos.y = backBufferHeight / 2.f; 
+	m_screenPos.x = backBufferWidth / 2.f;
+	m_screenPos.y = backBufferHeight / 2.f;
 }

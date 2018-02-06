@@ -13,5 +13,8 @@ public:
 	std::unique_ptr<DirectX::SpriteFont> m_font;
 	DirectX::SimpleMath::Vector2 m_fontPos;
 	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;
+	DirectX::SimpleMath::Vector2 m_screenPos;
+	DirectX::SimpleMath::Vector2 m_origin;
 };
 
