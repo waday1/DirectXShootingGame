@@ -3,6 +3,7 @@
 #include"InputManager.h"
 #include<iostream>
 #include"Player.h"
+#include "Enemy.h"
 
 using namespace std;
 using namespace DirectX;
@@ -18,6 +19,25 @@ MainScene::~MainScene()
 {
 	m_font.reset();
 	m_spriteBatch.reset();
+	delete player;
+	delete enemy;
+}
+
+void MainScene::CreateDevice(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, Microsoft::WRL::ComPtr<ID3D11DeviceContext1> m_d3dContext)
+{
+	m_font = std::make_unique<SpriteFont>(m_d3dDevice.Get(), L"myfile.spritefont");
+	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
+
+	player = new Player(m_d3dDevice.Get(), Vector2(100, 100), 100.0f, 1.0f, L"Player1.png", true);
+	enemy = new  Enemy(m_d3dDevice.Get(), Vector2(600, 100), 100.0f, 1.0f, L"Enemy1.png", true);
+}
+
+void MainScene::CreateResources(UINT backBufferWidth, UINT backBufferHeight)
+{
+	m_fontPos.x = backBufferWidth / 2.f;
+	m_fontPos.y = backBufferHeight / 2.f;
+	m_screenPos.x = backBufferWidth / 2.f;
+	m_screenPos.y = backBufferHeight / 2.f;
 }
 
 void MainScene::Update(DX::StepTimer const& timer)
@@ -44,23 +64,9 @@ void MainScene::Render()
 
 	m_font->DrawString(m_spriteBatch.get(), output,m_fontPos, Colors::White, 0.f, origin);
 
+	enemy->Render(m_spriteBatch.get());
+
 	player->Render(m_spriteBatch.get());
 
 	m_spriteBatch->End();
-}
-
-void MainScene::CreateDevice(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, Microsoft::WRL::ComPtr<ID3D11DeviceContext1> m_d3dContext)
-{
-	m_font = std::make_unique<SpriteFont>(m_d3dDevice.Get(), L"myfile.spritefont");
-	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
-
-	player =new Player(m_d3dDevice.Get(), Vector2(100, 100),100, L"Player1.png", true);
-}
-
-void MainScene::CreateResources(UINT backBufferWidth, UINT backBufferHeight)
-{
-	m_fontPos.x = backBufferWidth / 2.f;
-	m_fontPos.y = backBufferHeight / 2.f; 
-	m_screenPos.x = backBufferWidth / 2.f;
-	m_screenPos.y = backBufferHeight / 2.f;
 }

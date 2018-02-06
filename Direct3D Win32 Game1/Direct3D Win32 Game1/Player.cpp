@@ -9,7 +9,7 @@ Player::Player()
 {
 }
 
-Player::Player(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed, const wchar_t * filename, bool isAlive)
+Player::Player(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed,float scale, const wchar_t * filename, bool isAlive)
 {
 	Microsoft::WRL::ComPtr<ID3D11Resource> resource;
 	DX::ThrowIfFailed(
@@ -17,18 +17,18 @@ Player::Player(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath:
 			resource.GetAddressOf(),
 			texture.ReleaseAndGetAddressOf()));
 
-	Microsoft::WRL::ComPtr<ID3D11Texture2D> cat;
-	DX::ThrowIfFailed(resource.As(&cat));
+	Microsoft::WRL::ComPtr<ID3D11Texture2D> tex;
+	DX::ThrowIfFailed(resource.As(&tex));
 
-	CD3D11_TEXTURE2D_DESC catDesc;
-	cat->GetDesc(&catDesc);
+	CD3D11_TEXTURE2D_DESC texDesc;
+	tex->GetDesc(&texDesc);
 
-	origin.x = float(catDesc.Width / 2);
-	origin.y = float(catDesc.Height / 2);
+	SetOrigin(DirectX::SimpleMath::Vector2(float(texDesc.Width / 2), float(texDesc.Height / 2)));
 
-	position = pos;
+	SetPosition(pos);
 
-	this->speed = speed;
+	SetScale(scale);
+	SetSpeed(speed);
 }
 
 
@@ -49,24 +49,25 @@ void Player::Move(float fps)
 	Vector2 vec;
 	if (InputManager::IsKeyDown(Keyboard::Up))
 	{
-		vec.y = -speed;
+		vec.y = -GetSpeed();
 	}
 	if (InputManager::IsKeyDown(Keyboard::Down))
 	{
-		vec.y = speed;
+		vec.y = GetSpeed();
 	}
 	if (InputManager::IsKeyDown(Keyboard::Left))
 	{
-		vec.x = -speed;
+		vec.x = -GetSpeed();
 	}
 	if (InputManager::IsKeyDown(Keyboard::Right))
 	{
-		vec.x = speed;
+		vec.x = GetSpeed();
 	}
-	position += vec*fps;
+
+	MoveUpdate(vec*fps);
 }
 
-void Player::Render(DirectX::SpriteBatch *m_spriteBatch)
+void Player::Render(DirectX::SpriteBatch *spriteBatch)
 {
-	m_spriteBatch->Draw(texture.Get(), position, nullptr, Colors::White, 0.f, origin);
+	spriteBatch->Draw(texture.Get(), GetPosition(), nullptr, Colors::White, 0.0f, GetOrigin(),GetScale());
 }

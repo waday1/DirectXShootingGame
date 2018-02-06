@@ -8,7 +8,7 @@ Character::Character()
 {
 }
 
-Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed, const wchar_t * filename, bool isAlive)
+Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed,float scale, const wchar_t * filename, bool isAlive)
 {
 	/*Microsoft::WRL::ComPtr<ID3D11Resource> resource;
 	DX::ThrowIfFailed(
@@ -35,8 +35,13 @@ void Character::Update(DX::StepTimer const& timer)
 {
 }
 
-void Character::Render(DirectX::SpriteBatch* m_spriteBatch)
+void Character::Render(DirectX::SpriteBatch* spriteBatch)
 {
 
-	//m_spriteBatch->Draw(m_texture.Get(), position, nullptr, Colors::White, 0.f,Vector2::Zero);
+	//m_spriteBatch->Draw(texture.Get(), position, nullptr, Colors::White, 0.f,Vector2::Zero);
+}
+
+void Character::MoveUpdate(Vector2 vec)
+{
+	position += vec;
 }
