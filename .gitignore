@@ -1,3 +1,68 @@
 Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Texture.obj
 Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/ShotManager.obj
 Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/BaseShot.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/SimpleMath.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/Model.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DGSLEffectFactory.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/vc140.pdb
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/vc140.idb
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/pch.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Scene.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Player.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/MainScene.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Main.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/InputManager.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D.a92961c1.tlog/CL.command.1.tlog
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D Win32 Game1.pch
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D Win32 Game1.log
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D Win32 Game1.Build.CppClean.log
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Character.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Game.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Enemy.obj
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D.a92961c1.tlog/link.write.1.tlog
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D.a92961c1.tlog/link.read.1.tlog
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D.a92961c1.tlog/link.command.1.tlog
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D.a92961c1.tlog/Direct3D Win32 Game1.write.1u.tlog
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D.a92961c1.tlog/CL.write.1.tlog
+Direct3D Win32 Game1/Direct3D Win32 Game1/x64/Debug/Direct3D.a92961c1.tlog/CL.read.1.tlog
+Direct3D Win32 Game1/x64/Debug/Direct3D Win32 Game1.exe
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/pch.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/WICTextureLoader.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/VertexTypes.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/ToneMapPostProcess.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/SpriteFont.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/SpriteBatch.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/SkinnedEffect.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/EffectCommon.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DGSLEffect.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DDSTextureLoader.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/CommonStates.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/BinaryReader.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/BasicPostProcess.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/BasicEffect.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/AlphaTestEffect.obj
+Direct3D Win32 Game1/x64/Debug/Direct3D Win32 Game1.pdb
+Direct3D Win32 Game1/x64/Debug/Direct3D Win32 Game1.lib
+Direct3D Win32 Game1/x64/Debug/Direct3D Win32 Game1.ilk
+Direct3D Win32 Game1/x64/Debug/Direct3D Win32 Game1.exp
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/Keyboard.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/GraphicsMemory.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/Geometry.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/GeometricPrimitive.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/GamePad.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/EnvironmentMapEffect.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/EffectFactory.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DualTextureEffect.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DualPostProcess.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DirectXTK.pdb
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DirectXTK.pch
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DirectXTK.lib
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DirectXTK.idb
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/DirectXT.E0B52AE7.tlog/CL.read.1.tlog
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/ScreenGrab.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/PrimitiveBatch.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/NormalMapEffect.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/Mouse.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/ModelLoadVBO.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/ModelLoadSDKMESH.obj
+Direct3D Win32 Game1/DirectXTK/Bin/Desktop_2015/x64/Debug/ModelLoadCMO.obj
