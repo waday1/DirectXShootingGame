@@ -29,6 +29,7 @@ Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::Simpl
 
 Character::~Character()
 {
+	delete texture;
 }
 
 void Character::Update(DX::StepTimer const& timer)
@@ -37,8 +38,7 @@ void Character::Update(DX::StepTimer const& timer)
 
 void Character::Render(DirectX::SpriteBatch* spriteBatch)
 {
-
-	//m_spriteBatch->Draw(texture.Get(), position, nullptr, Colors::White, 0.f,Vector2::Zero);
+	spriteBatch->Draw(texture->texture.Get(), GetPosition(), nullptr, Colors::White, 0.0f,texture->GetOrigin(), GetScale());
 }
 
 void Character::MoveUpdate(Vector2 vec)

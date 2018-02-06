@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "Character.h"
+#include"ShotManager.h"
 
 class MainScene :
 	public Scene
@@ -16,6 +17,7 @@ public:
 public:
 	Character* player;
 	Character* enemy;
+	ShotManager* shotManager;
 	std::unique_ptr<DirectX::SpriteFont> m_font;
 	DirectX::SimpleMath::Vector2 m_fontPos;
 	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;

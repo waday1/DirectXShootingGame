@@ -12,6 +12,5 @@ public:
 
 	void Update(DX::StepTimer const& timer);
 	void Move(float fps);
-	void Render(DirectX::SpriteBatch*);
 };
 

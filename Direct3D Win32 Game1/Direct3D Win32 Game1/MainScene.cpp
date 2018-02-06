@@ -21,6 +21,7 @@ MainScene::~MainScene()
 	m_spriteBatch.reset();
 	delete player;
 	delete enemy;
+	delete shotManager;
 }
 
 void MainScene::CreateDevice(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, Microsoft::WRL::ComPtr<ID3D11DeviceContext1> m_d3dContext)
@@ -30,6 +31,7 @@ void MainScene::CreateDevice(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, 
 
 	player = new Player(m_d3dDevice.Get(), Vector2(100, 100), 100.0f, 1.0f, L"Player1.png", true);
 	enemy = new  Enemy(m_d3dDevice.Get(), Vector2(600, 100), 100.0f, 1.0f, L"Enemy1.png", true);
+	shotManager = new ShotManager(m_d3dDevice.Get());
 }
 
 void MainScene::CreateResources(UINT backBufferWidth, UINT backBufferHeight)
@@ -67,6 +69,8 @@ void MainScene::Render()
 	enemy->Render(m_spriteBatch.get());
 
 	player->Render(m_spriteBatch.get());
+
+	shotManager->Render(m_spriteBatch.get());
 
 	m_spriteBatch->End();
 }

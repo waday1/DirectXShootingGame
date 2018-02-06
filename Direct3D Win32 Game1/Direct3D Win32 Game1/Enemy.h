@@ -10,6 +10,5 @@ public:
 		const wchar_t * filename, bool isAlive);
 	~Enemy();
 	void Update(DX::StepTimer const& timer);
-	void Render(DirectX::SpriteBatch*);
 };
 
