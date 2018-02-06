@@ -1,4 +1,0 @@
-﻿  Player.cpp
-c:\users\yuuki\desktop\directxshootinggame\direct3d win32 game1\direct3d win32 game1\player.cpp(43): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
-  Direct3D Win32 Game1.vcxproj -> C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\x64\Debug\Direct3D Win32 Game1.exe
-  Direct3D Win32 Game1.vcxproj -> C:\Users\yuuki\Desktop\DirectXShootingGame\Direct3D Win32 Game1\x64\Debug\Direct3D Win32 Game1.pdb (Full PDB)
