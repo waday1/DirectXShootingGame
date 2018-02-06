@@ -60,6 +60,8 @@ void Player::Shot(ShotManager * shotmanager)
 {
 	if (InputManager::IsKeyDown(Keyboard::Z))
 	{
-		shotmanager->SetShot(BaseShot(GetPosition(), 200, 1.0f, true));
+		shotmanager->SetShot(BaseShot(GetPosition(), 200, 1.0f,180, true));
+		shotmanager->SetShot(BaseShot(GetPosition(), 200, 1.0f, 200, true));
+		shotmanager->SetShot(BaseShot(GetPosition(), 200, 1.0f, 160, true));
 	}
 }

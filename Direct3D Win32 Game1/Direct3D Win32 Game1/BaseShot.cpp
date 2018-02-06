@@ -6,13 +6,14 @@ using namespace DirectX::SimpleMath;
 
 
 
-BaseShot::BaseShot(DirectX::SimpleMath::Vector2 pos, float speed, float scale, bool isAlive)
+BaseShot::BaseShot(DirectX::SimpleMath::Vector2 pos, float speed, float scale, float angle, bool isAlive)
 {
 
 	SetPosition(pos);
 
-	SetScale(scale);
 	SetSpeed(speed);
+	SetScale(scale);
+	SetAngle(angle / 180 * PI);
 	SetIsAlive(isAlive);
 }
 
@@ -23,12 +24,16 @@ BaseShot::~BaseShot()
 
 void BaseShot::Update(DX::StepTimer const & timer)
 {
-		MoveUpdate(Vector2(0, speed)*timer.GetElapsedSeconds());
+	Vector2 vec;
+	vec.x = speed*sin(angle);
+	vec.y = speed*cos(angle);
 
-		if (position.y > 800)
-		{
-			isAlive = false;
-		}
+	MoveUpdate(vec*timer.GetElapsedSeconds());
+
+	if (position.y > 800 || position.y < -100)
+	{
+		isAlive = false;
+	}
 }
 
 
@@ -39,5 +44,5 @@ void BaseShot::MoveUpdate(DirectX::SimpleMath::Vector2 vec)
 
 void BaseShot::Render(DirectX::SpriteBatch *spriteBatch, Texture* texture)
 {
-	spriteBatch->Draw(texture->texture.Get(), GetPosition(), nullptr, Colors::White, 0.0f,texture->GetOrigin(), GetScale());
+	spriteBatch->Draw(texture->texture.Get(), GetPosition(), nullptr, Colors::White, 0.0f, texture->GetOrigin(), GetScale());
 }
