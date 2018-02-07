@@ -6,6 +6,7 @@
 #include"Collider.h"
 #include"BoxCollider.h"
 #include"CircleCollider.h"
+#include"NWay.h"
 ///<summry>
 ///プレイヤーと敵の基底クラス
 ///</summary>
@@ -14,6 +15,7 @@ class Character
 public:
 	Character();
 	Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed,float scale, const wchar_t * filename,BoxCollider box,bool isAlive);
+	Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos, float speed, float scale, int life, const wchar_t * filename, BoxCollider box, bool isAlive);
 	Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos, float speed, float scale, const wchar_t * filename, bool isAlive);
 	~Character();
 	virtual void Update(DX::StepTimer const& timer,ShotManager* shotmanager) ;
@@ -38,6 +40,13 @@ public:
 	Collider* GetCollider() { return collider; }
 	void SetCollider(Collider *collider ) { this->collider = collider; }
 
+	ShotGenerater* GetCurrentGenerater() { return currentGenerater; }
+	void SetCurrentGenerater(ShotGenerater *currentGenerater) { this->currentGenerater = currentGenerater; }
+
+	//敵の体力用
+	virtual int GetLife() { return 0; }
+	virtual void SetLife(int life) {  }
+
 	Texture* texture;
 private:
 	DirectX::SimpleMath::Vector2 position;
@@ -46,5 +55,6 @@ private:
 	float speed;
 	bool isAlive;
 	Collider*collider;
+	ShotGenerater* currentGenerater;
 };
 

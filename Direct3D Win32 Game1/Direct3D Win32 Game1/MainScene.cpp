@@ -32,7 +32,7 @@ void MainScene::CreateDevice(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, 
 	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
 
 	player = new Player(m_d3dDevice.Get(), Vector2(400, 400), 100.0f, 1.0f, L"Player1.png", true);
-	enemy = new  Enemy(m_d3dDevice.Get(), Vector2(600, 100), 100.0f, 1.0f, L"Enemy1.png", BoxCollider(), true);
+	enemy = new  Enemy(m_d3dDevice.Get(), Vector2(600, 100), 100.0f, 1.0f,100, L"Enemy1.png", BoxCollider(), true);
 	shotManager = new ShotManager(m_d3dDevice.Get());
 }
 
@@ -69,18 +69,8 @@ void MainScene::Render()
 
 
 	wchar_t wStr[12];//変換後の文字列
-	_itow_s(player->GetPosition().x - player->GetCollider()->GetSize().x, wStr, 10);//変換用関数
-	m_font->DrawString(m_spriteBatch.get(), wStr, player->GetPosition() + player->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
-
-	_itow_s(player->GetPosition().x + player->GetCollider()->GetSize().x, wStr, 10);//変換用関数
-	m_font->DrawString(m_spriteBatch.get(), wStr, player->GetPosition()- player->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
-
-	_itow_s(enemy->GetPosition().x - enemy->GetCollider()->GetSize().x, wStr, 10);//変換用関数
-	m_font->DrawString(m_spriteBatch.get(), wStr, enemy->GetPosition() + enemy->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
-
-	_itow_s(enemy->GetPosition().x + enemy->GetCollider()->GetRadius(), wStr, 10);//変換用関数
-	m_font->DrawString(m_spriteBatch.get(), wStr, enemy->GetPosition() - enemy->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
-
+	_itow_s(enemy->GetLife(), wStr, 10);//変換用関数
+	m_font->DrawString(m_spriteBatch.get(), wStr, Vector2(0,200), Colors::White, 0.f, Vector2::Zero);
 	player->Render(m_spriteBatch.get());
 	if(enemy->GetIsAlive())
 	enemy->Render(m_spriteBatch.get());

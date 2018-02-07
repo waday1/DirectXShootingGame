@@ -42,7 +42,15 @@ void ShotManager::Update(DX::StepTimer const & timer, Character* player, Charact
 			case ShotCharacter::S_Player:
 				if (shot[i].GetCollider()->Intersects(enemy->GetCollider()))
 				{
-					enemy->SetIsAlive(false);
+					if (enemy->GetIsAlive())
+					{
+						enemy->SetLife(enemy->GetLife() - 1);
+						if (enemy->GetLife() <= 0)
+						{
+							enemy->SetIsAlive(false);
+						}
+						shot[i].SetIsAlive(false);
+					}
 				}
 			default:
 				break;

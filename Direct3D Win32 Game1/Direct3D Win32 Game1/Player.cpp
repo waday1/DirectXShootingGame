@@ -19,6 +19,8 @@ Player::Player(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath:
 	SetScale(scale);
 	SetSpeed(speed);
 	SetCollider(new CircleCollider(pos, collisionTexture->GetOrigin().x));
+
+	SetCurrentGenerater(new NWay(3, 20, 200, 1, 0.2f,0, ShotCharacter::S_Player));
 }
 
 
@@ -32,7 +34,7 @@ void Player::Update(DX::StepTimer const& timer, ShotManager* shotmanager)
 {
 	//StepTimer‚Å1ƒtƒŒ[ƒ€‚ ‚½‚è‚ÌŽžŠÔ‚ð‚Æ‚é
 	Move(timer.GetElapsedSeconds());
-	Shot(shotmanager);
+	Shot(timer,shotmanager);
 }
 
 
@@ -60,13 +62,11 @@ void Player::Move(float fps)
 	GetCollider()->SetPosition(GetPosition());
 }
 
-void Player::Shot(ShotManager * shotmanager)
+void Player::Shot(DX::StepTimer const& timer, ShotManager * shotmanager)
 {
 	if (InputManager::IsKeyDown(Keyboard::Z))
 	{
-		shotmanager->SetShot(BaseShot(GetPosition(), 200, 1.0f,180, true,ShotCharacter::S_Player));
-		shotmanager->SetShot(BaseShot(GetPosition(), 200, 1.0f, 200, true, ShotCharacter::S_Player));
-		shotmanager->SetShot(BaseShot(GetPosition(), 200, 1.0f, 160, true, ShotCharacter::S_Player));
+		GetCurrentGenerater()->Update(timer,shotmanager,GetPosition(),Vector2(GetPosition().x,GetPosition().y-100));
 	}
 }
 

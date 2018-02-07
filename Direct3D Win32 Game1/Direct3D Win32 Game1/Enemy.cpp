@@ -8,14 +8,17 @@ Enemy::Enemy()
 {
 }
 
-Enemy::Enemy(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos, float speed, float scale, const wchar_t * filename, BoxCollider box, bool isAlive)
+Enemy::Enemy(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos, float speed, float scale, int life, const wchar_t * filename, BoxCollider box, bool isAlive)
 {
 	texture = new Texture(Device, filename);
 
 	SetPosition(pos);
 
 	SetScale(scale);
+
 	SetSpeed(speed);
+
+	SetLife(life);
 
 	SetCollider(new CircleCollider(pos,texture->origin.x));
 }

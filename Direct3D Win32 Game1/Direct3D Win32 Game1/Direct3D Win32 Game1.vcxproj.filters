@@ -17,6 +17,9 @@
     <Filter Include="Collider">
       <UniqueIdentifier>{90e46a17-fcc9-4d7f-aa5c-21f144bb16cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ShotGeneratePattern">
+      <UniqueIdentifier>{8150a35d-ec1a-4c92-a9c8-ac816c449a4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -54,6 +57,10 @@
     <ClInclude Include="BoxCollider.h">
       <Filter>Collider</Filter>
     </ClInclude>
+    <ClInclude Include="ShotGenerater.h">
+      <Filter>ShotGeneratePattern</Filter>
+    </ClInclude>
+    <ClInclude Include="NWay.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -91,6 +98,10 @@
     <ClCompile Include="BoxCollider.cpp">
       <Filter>Collider</Filter>
     </ClCompile>
+    <ClCompile Include="ShotGenerater.cpp">
+      <Filter>ShotGeneratePattern</Filter>
+    </ClCompile>
+    <ClCompile Include="NWay.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
