@@ -20,8 +20,8 @@ MainScene::MainScene()
 MainScene::MainScene(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, Microsoft::WRL::ComPtr<ID3D11DeviceContext1> m_d3dContext,
 	UINT backBufferWidth, UINT backBufferHeight, int stageNum)
 {
-	CreateDevice( m_d3dDevice,  m_d3dContext);
 	CreateResources(backBufferWidth, backBufferHeight, stageNum);
+	CreateDevice( m_d3dDevice,  m_d3dContext);
 }
 
 

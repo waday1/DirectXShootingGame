@@ -14,21 +14,11 @@ public:
 	void Render(DirectX::SpriteBatch *spriteBatch);
 
 	BaseShot GetShot(int index) { return shot[index]; }
-	bool SetShot(BaseShot shot) {
-		for (int i = 0; i < MaxShotCount; i++)
-		{
-			if (!this->shot[i].GetIsAlive())
-			{
-				this->shot[i] = shot;
-				return true;
-			}
-		}
-		return false;
-	}
+	bool SetShot(BaseShot shot);
 	const int GetMaxShotCount() { return MaxShotCount; }
 	BaseShot* shot;
 private:
-	const int MaxShotCount = 500;
+	const int MaxShotCount = 1000;
 	Texture* texture;
 };
 

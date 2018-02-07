@@ -32,7 +32,11 @@ void BaseShot::Update(DX::StepTimer const & timer)
 
 	MoveUpdate(vec*timer.GetElapsedSeconds());
 
-	if (position.y > 800 || position.y < -100)
+	if (position.y > 650 || position.y < -50)
+	{
+		isAlive = false;
+	}
+	if (position.x > 850 || position.x < -500)
 	{
 		isAlive = false;
 	}

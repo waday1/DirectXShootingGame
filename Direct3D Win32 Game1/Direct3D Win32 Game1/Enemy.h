@@ -13,12 +13,15 @@ public:
 
 	void Shot(DX::StepTimer const& timer, ShotManager* shotmanager, DirectX::SimpleMath::Vector2 playerPos);
 
+	//ステージごとの動きの設定
+	void SetPattern(int stageNum);
 
 	int GetLife() { return life; }
 	void SetLife(int life) { this->life = life; }
 
 private:
 	int life;
-
+	///本当は基底クラスのcurrentGeneraterをlistにしてやりたかったが時間がないので断念。今後修正予定
+	ShotGenerater* currentGenerater;
 };
 

@@ -8,7 +8,7 @@ using namespace std;
 
 ShotManager::ShotManager(Microsoft::WRL::ComPtr<ID3D11Device> Device)
 {
-	shot = new BaseShot[100];
+	shot = new BaseShot[MaxShotCount];
 	for (int i = 0; i <MaxShotCount; i++)
 	{
 		shot[i] = BaseShot();
@@ -69,5 +69,20 @@ void ShotManager::Render(DirectX::SpriteBatch * spriteBatch)
 		{
 			shot[i].Render(spriteBatch,texture);
 		}
+	}
+}
+
+bool ShotManager::SetShot(BaseShot shot)
+{
+	{
+		for (int i = 0; i < MaxShotCount; i++)
+		{
+			if (!this->shot[i].GetIsAlive())
+			{
+				this->shot[i] = shot;
+				return true;
+			}
+		}
+		return false;
 	}
 }

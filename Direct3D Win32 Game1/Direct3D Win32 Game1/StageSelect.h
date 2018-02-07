@@ -17,7 +17,7 @@ public:
 
 
 	int stageNum;
-	int stageNumMax = 2;
+	int stageNumMax = 4;
 	std::unique_ptr<DirectX::SpriteFont> m_font;
 	DirectX::SimpleMath::Vector2 m_fontPos;
 	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
