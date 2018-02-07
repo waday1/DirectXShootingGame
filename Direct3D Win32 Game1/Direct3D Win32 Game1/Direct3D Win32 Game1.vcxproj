@@ -166,6 +166,7 @@
     <ClInclude Include="NWay.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Result.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShotGenerater.h" />
     <ClInclude Include="ShotManager.h" />
@@ -193,6 +194,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Result.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShotGenerater.cpp" />
     <ClCompile Include="ShotManager.cpp" />

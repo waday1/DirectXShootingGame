@@ -6,7 +6,7 @@
 #include "Enemy.h"
 #include < wchar.h > 
 #include"BoxCollider.h"
-#include"Title.h"
+#include"Result.h"
 
 using namespace std;
 using namespace DirectX;
@@ -61,9 +61,13 @@ Scene* MainScene::Update(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, Micr
 	player->Update(timer,shotManager);
 	enemy->Update(timer, shotManager, player->GetPosition());
 	shotManager->Update(timer,player,enemy);
-	if (!player->GetIsAlive() || !enemy->GetIsAlive())
+	if (!player->GetIsAlive() )
 	{
-		return new Title(m_d3dDevice, m_d3dContext, backBufferWidth, backBufferHeight);
+		return new Result(m_d3dDevice, m_d3dContext, backBufferWidth, backBufferHeight,false);
+	}
+	else if (!enemy->GetIsAlive())
+	{
+		return new Result(m_d3dDevice, m_d3dContext, backBufferWidth, backBufferHeight, true);
 	}
 	return this;
 }

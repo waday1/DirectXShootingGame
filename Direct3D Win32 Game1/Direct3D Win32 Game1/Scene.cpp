@@ -20,6 +20,10 @@ Scene::Scene(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, Microsoft::WRL::
 {
 }
 
+Scene::Scene(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, Microsoft::WRL::ComPtr<ID3D11DeviceContext1> m_d3dContext, UINT backBufferWidth, UINT backBufferHeight, bool isCrear)
+{
+}
+
 Scene::~Scene()
 {
 }

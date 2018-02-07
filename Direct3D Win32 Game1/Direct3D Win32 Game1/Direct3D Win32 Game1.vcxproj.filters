@@ -69,6 +69,7 @@
     <ClInclude Include="StageSelect.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Result.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -118,6 +119,7 @@
     <ClCompile Include="StageSelect.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Result.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />

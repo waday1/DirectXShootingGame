@@ -67,7 +67,15 @@ void ShotManager::Render(DirectX::SpriteBatch * spriteBatch)
 	{
 		if (shot[i].GetIsAlive())
 		{
-			shot[i].Render(spriteBatch,texture);
+			//プレイヤーとエネミーで弾の色が同じなので、のちに別の画像に差し替える
+			if (shot[i].GetCharacter() == ShotCharacter::S_Enemy)
+			{
+				shot[i].Render(spriteBatch, texture);
+			}
+			if (shot[i].GetCharacter() == ShotCharacter::S_Player)
+			{
+				shot[i].Render(spriteBatch, texture);
+			}
 		}
 	}
 }
