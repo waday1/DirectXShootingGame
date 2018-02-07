@@ -1,4 +1,9 @@
 #pragma once
+
+enum CollisionType
+{
+	None, Box, Circle
+};
 class Collider
 {
 public:
@@ -17,8 +22,14 @@ public:
 	//当たり判定の半径（CircleCollider用）
 	virtual float GetRadius() { return 0; }
 	virtual void SetRadius(float radius) { }
+
+	CollisionType GetCollisionType() { return type; }
+	void SetCollisionType(CollisionType type) { this->type = type; }
+
+	virtual bool Intersects(Collider* collider);
 private:
 	//当たり判定の中心
 	DirectX::SimpleMath::Vector2 position;
+	CollisionType type;
 };
 

@@ -17,6 +17,7 @@ Player::Player(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath:
 
 	SetScale(scale);
 	SetSpeed(speed);
+	SetCollider(new BoxCollider(pos, texture->GetOrigin()));
 }
 
 
@@ -54,6 +55,7 @@ void Player::Move(float fps)
 	}
 
 	MoveUpdate(vec*fps);
+	GetCollider()->SetPosition(GetPosition());
 }
 
 void Player::Shot(ShotManager * shotmanager)

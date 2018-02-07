@@ -69,14 +69,22 @@ void MainScene::Render()
 
 
 	wchar_t wStr[12];//変換後の文字列
-	_itow_s(player->GetPosition().x - enemy->GetCollider()->GetSize().x, wStr, 10);//変換用関数
-	m_font->DrawString(m_spriteBatch.get(), wStr, player->GetPosition() + enemy->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
+	_itow_s(player->GetPosition().x - player->GetCollider()->GetSize().x, wStr, 10);//変換用関数
+	m_font->DrawString(m_spriteBatch.get(), wStr, player->GetPosition() + player->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
 
-	_itow_s(player->GetPosition().x +enemy->GetCollider()->GetSize().x, wStr, 10);//変換用関数
-	m_font->DrawString(m_spriteBatch.get(), wStr, player->GetPosition()- enemy->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
+	_itow_s(player->GetPosition().x + player->GetCollider()->GetSize().x, wStr, 10);//変換用関数
+	m_font->DrawString(m_spriteBatch.get(), wStr, player->GetPosition()- player->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
 
-	enemy->Render(m_spriteBatch.get());
+	_itow_s(enemy->GetPosition().x - enemy->GetCollider()->GetSize().x, wStr, 10);//変換用関数
+	m_font->DrawString(m_spriteBatch.get(), wStr, enemy->GetPosition() + enemy->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
 
+	_itow_s(enemy->GetPosition().x + enemy->GetCollider()->GetSize().x, wStr, 10);//変換用関数
+	m_font->DrawString(m_spriteBatch.get(), wStr, enemy->GetPosition() - enemy->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
+
+	if(player->GetCollider()->Intersects(enemy->GetCollider()))
+		enemy->Render(m_spriteBatch.get());
+
+	
 	player->Render(m_spriteBatch.get());
 
 	shotManager->Render(m_spriteBatch.get());

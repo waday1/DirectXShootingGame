@@ -18,3 +18,8 @@ Collider::~Collider()
 void Collider::Render(DirectX::SpriteBatch * spriteBatch)
 {
 }
+
+bool Collider::Intersects(Collider * collider)
+{
+	return false;
+}
