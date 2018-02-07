@@ -25,6 +25,9 @@ public:
 	float GetAngle() { return angle; }
 	void SetAngle(float angle) { this->angle = angle; }
 
+	float GetCollisionRadius() { return collisionRadius; }
+	void SetCollisionRadius(float collisionRadius) { this->collisionRadius = collisionRadius; }
+
 	bool GetIsAlive() { return isAlive; }
 	void SetIsAlive(bool isAlive) { this->isAlive = isAlive; }
 
@@ -33,6 +36,8 @@ private:
 	float scale;
 	float speed;
 	float angle;
+	//“–‚½‚è”»’è‚Ì”¼Œa
+	float collisionRadius;
 	bool isAlive;
 };
 

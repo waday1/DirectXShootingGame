@@ -8,7 +8,7 @@ Character::Character()
 {
 }
 
-Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed,float scale, const wchar_t * filename, bool isAlive)
+Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed,float scale, const wchar_t * filename,  BoxCollider box, bool isAlive)
 {
 	/*Microsoft::WRL::ComPtr<ID3D11Resource> resource;
 	DX::ThrowIfFailed(
@@ -27,9 +27,14 @@ Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::Simpl
 
 }
 
+Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos, float speed, float scale, const wchar_t * filename, bool isAlive)
+{
+}
+
 Character::~Character()
 {
 	delete texture;
+	delete collider;
 }
 
 void Character::Update(DX::StepTimer const& timer, ShotManager* shotmanager)

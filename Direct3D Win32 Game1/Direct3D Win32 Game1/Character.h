@@ -3,6 +3,8 @@
 #include "StepTimer.h"
 #include"Texture.h"
 #include"ShotManager.h"
+#include"Collider.h"
+#include"BoxCollider.h"
 ///<summry>
 ///プレイヤーと敵の基底クラス
 ///</summary>
@@ -10,7 +12,8 @@ class Character
 {
 public:
 	Character();
-	Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed,float scale, const wchar_t * filename,bool isAlive);
+	Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos,float speed,float scale, const wchar_t * filename,BoxCollider box,bool isAlive);
+	Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos, float speed, float scale, const wchar_t * filename, bool isAlive);
 	~Character();
 	virtual void Update(DX::StepTimer const& timer,ShotManager* shotmanager) ;
 	void Render(DirectX::SpriteBatch*) ;
@@ -31,6 +34,9 @@ public:
 	bool GetIsAlive() { return isAlive; }
 	void SetIsAlive() { this->isAlive = isAlive; }
 
+	Collider* GetCollider() { return collider; }
+	void SetCollider(Collider *collider ) { this->collider = collider; }
+
 	Texture* texture;
 private:
 	DirectX::SimpleMath::Vector2 position;
@@ -38,6 +44,6 @@ private:
 	float scale;
 	float speed;
 	bool isAlive;
-	
+	Collider*collider;
 };
 
