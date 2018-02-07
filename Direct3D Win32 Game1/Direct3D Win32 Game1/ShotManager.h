@@ -28,7 +28,7 @@ public:
 	const int GetMaxShotCount() { return MaxShotCount; }
 	BaseShot* shot;
 private:
-	const int MaxShotCount = 100;
+	const int MaxShotCount = 500;
 	Texture* texture;
 };
 

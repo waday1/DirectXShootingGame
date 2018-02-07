@@ -60,7 +60,15 @@
     <ClInclude Include="ShotGenerater.h">
       <Filter>ShotGeneratePattern</Filter>
     </ClInclude>
-    <ClInclude Include="NWay.h" />
+    <ClInclude Include="NWay.h">
+      <Filter>ShotGeneratePattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="StageSelect.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -101,7 +109,15 @@
     <ClCompile Include="ShotGenerater.cpp">
       <Filter>ShotGeneratePattern</Filter>
     </ClCompile>
-    <ClCompile Include="NWay.cpp" />
+    <ClCompile Include="NWay.cpp">
+      <Filter>ShotGeneratePattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="StageSelect.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />

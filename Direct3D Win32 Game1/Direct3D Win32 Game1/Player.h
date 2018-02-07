@@ -15,6 +15,9 @@ public:
 	void Shot(DX::StepTimer const& timer, ShotManager* shotmanager);
 	void Render(DirectX::SpriteBatch*);
 
+	//スクリーンの外に出た際の処理（スクリーンサイズを直接入れているため要修正）
+	void PositionModification();
+
 	Texture* collisionTexture;
 };
 

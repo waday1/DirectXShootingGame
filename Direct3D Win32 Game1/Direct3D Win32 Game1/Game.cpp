@@ -6,6 +6,7 @@
 #include "Game.h"
 #include"InputManager.h"
 #include"MainScene.h"
+#include"Title.h"
 
 extern void ExitGame();
 
@@ -29,7 +30,7 @@ void Game::Initialize(HWND window, int width, int height)
     m_outputWidth = std::max(width, 1);
     m_outputHeight = std::max(height, 1);
 
-	scene =new MainScene();
+	scene =new Title();
 
 	InputManager::Initialize();
 
@@ -70,7 +71,7 @@ void Game::Update(DX::StepTimer const& timer)
 		PostQuitMessage(0);
 	}
 
-	scene->Update(timer);
+	scene=scene->Update(m_d3dDevice.Get(), m_d3dContext.Get(), static_cast<UINT>(m_outputWidth), static_cast<UINT>(m_outputHeight),timer);
 
     elapsedTime;
 }

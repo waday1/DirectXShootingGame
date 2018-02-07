@@ -27,7 +27,9 @@ Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::Simpl
 
 }
 
-Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos, float speed, float scale, int life, const wchar_t * filename, BoxCollider box, bool isAlive)
+Character::Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos, 
+	float speed, float scale, int life,
+	const wchar_t * filename, BoxCollider box, bool isAlive, int stageNum)
 {
 }
 
@@ -43,6 +45,10 @@ Character::~Character()
 }
 
 void Character::Update(DX::StepTimer const& timer, ShotManager* shotmanager)
+{
+}
+
+void Character::Update(DX::StepTimer const & timer, ShotManager * shotmanager, DirectX::SimpleMath::Vector2 playerPos)
 {
 }
 

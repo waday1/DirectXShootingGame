@@ -169,8 +169,10 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShotGenerater.h" />
     <ClInclude Include="ShotManager.h" />
+    <ClInclude Include="StageSelect.h" />
     <ClInclude Include="StepTimer.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Title.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseShot.cpp" />
@@ -194,7 +196,9 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShotGenerater.cpp" />
     <ClCompile Include="ShotManager.cpp" />
+    <ClCompile Include="StageSelect.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />

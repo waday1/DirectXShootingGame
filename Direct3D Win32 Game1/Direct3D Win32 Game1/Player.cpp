@@ -20,7 +20,7 @@ Player::Player(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath:
 	SetSpeed(speed);
 	SetCollider(new CircleCollider(pos, collisionTexture->GetOrigin().x));
 
-	SetCurrentGenerater(new NWay(3, 10, 300, 1, 0.2f,0, ShotCharacter::S_Player));
+	SetCurrentGenerater(new NWay(3, 10, 400, 1, 0.1f,0, ShotCharacter::S_Player));
 }
 
 
@@ -59,6 +59,7 @@ void Player::Move(float fps)
 	}
 
 	MoveUpdate(vec*fps);
+	PositionModification();
 	GetCollider()->SetPosition(GetPosition());
 }
 
@@ -78,4 +79,24 @@ void Player::Render(DirectX::SpriteBatch *spriteBatch)
 {
 	spriteBatch->Draw(texture->texture.Get(), GetPosition(), nullptr, Colors::White, 0.0f, texture->GetOrigin(), GetScale());
 	spriteBatch->Draw(collisionTexture->texture.Get(), GetPosition(), nullptr, Colors::White, 0.0f, collisionTexture->GetOrigin(), GetScale());
+}
+
+void Player::PositionModification()
+{
+	if (GetPosition().x - collisionTexture->origin.x <= 0)
+	{
+		SetPosition(Vector2(collisionTexture->origin.x, GetPosition().y));
+	}
+	if (GetPosition().x + collisionTexture->origin.x >= 800)
+	{
+		SetPosition(Vector2(800-collisionTexture->origin.x, GetPosition().y));
+	}
+	if (GetPosition().y - collisionTexture->origin.y <= 0)
+	{
+		SetPosition(Vector2(GetPosition().x, collisionTexture->origin.y ));
+	}
+	if (GetPosition().y + collisionTexture->origin.y >= 600)
+	{
+		SetPosition(Vector2(GetPosition().x, 600 - collisionTexture->origin.y));
+	}
 }
