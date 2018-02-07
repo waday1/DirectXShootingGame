@@ -47,7 +47,7 @@ void MainScene::CreateResources(UINT backBufferWidth, UINT backBufferHeight)
 void MainScene::Update(DX::StepTimer const& timer)
 {
 	player->Update(timer,shotManager);
-	shotManager->Update(timer);
+	shotManager->Update(timer,player,enemy);
 }
 
 void MainScene::Render()
@@ -81,11 +81,11 @@ void MainScene::Render()
 	_itow_s(enemy->GetPosition().x + enemy->GetCollider()->GetRadius(), wStr, 10);//•ÏŠ·—pŠÖ”
 	m_font->DrawString(m_spriteBatch.get(), wStr, enemy->GetPosition() - enemy->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
 
-	if(player->GetCollider()->Intersects(enemy->GetCollider()))
-		enemy->Render(m_spriteBatch.get());
+	player->Render(m_spriteBatch.get());
+	if(enemy->GetIsAlive())
+	enemy->Render(m_spriteBatch.get());
 
 	
-	player->Render(m_spriteBatch.get());
 
 	shotManager->Render(m_spriteBatch.get());
 

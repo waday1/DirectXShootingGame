@@ -2,8 +2,9 @@
 
 enum CollisionType
 {
-	None, Box, Circle
+	Box, Circle,None
 };
+
 class Collider
 {
 public:

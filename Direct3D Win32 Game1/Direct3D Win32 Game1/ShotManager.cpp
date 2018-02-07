@@ -1,8 +1,10 @@
 #include "pch.h"
 #include "ShotManager.h"
+#include"Character.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
+using namespace std;
 
 ShotManager::ShotManager(Microsoft::WRL::ComPtr<ID3D11Device> Device)
 {
@@ -13,7 +15,7 @@ ShotManager::ShotManager(Microsoft::WRL::ComPtr<ID3D11Device> Device)
 	}
 
 	shot[0] = BaseShot( Vector2(500, 500), 100.0f, 1.0, true);
-	texture =new Texture(Device, L"Player1.png");
+	texture =new Texture(Device, L"Shot.png");
 }
 
 
@@ -23,13 +25,28 @@ ShotManager::~ShotManager()
 	delete texture;
 }
 
-void ShotManager::Update(DX::StepTimer const & timer)
+void ShotManager::Update(DX::StepTimer const & timer, Character* player, Character* enemy)
 {
 	for (int i = 0; i < GetMaxShotCount(); i++)
 	{
 		if (shot[i].GetIsAlive())
 		{
 			shot[i].Update(timer);
+			switch (shot[i].GetCharacter())
+			{
+			case ShotCharacter::S_Enemy:
+				if (shot[i].GetCollider()->Intersects(player->GetCollider()))
+				{
+
+				}
+			case ShotCharacter::S_Player:
+				if (shot[i].GetCollider()->Intersects(enemy->GetCollider()))
+				{
+					enemy->SetIsAlive(false);
+				}
+			default:
+				break;
+			}
 		}
 	}
 }

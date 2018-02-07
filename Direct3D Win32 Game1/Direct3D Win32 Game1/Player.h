@@ -13,5 +13,8 @@ public:
 	void Update(DX::StepTimer const& timer, ShotManager* shotmanager);
 	void Move(float fps);
 	void Shot(ShotManager* shotmanager);
+	void Render(DirectX::SpriteBatch*);
+
+	Texture* collisionTexture;
 };
 

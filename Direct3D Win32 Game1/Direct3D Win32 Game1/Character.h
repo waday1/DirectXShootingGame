@@ -17,7 +17,7 @@ public:
 	Character(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::Vector2 pos, float speed, float scale, const wchar_t * filename, bool isAlive);
 	~Character();
 	virtual void Update(DX::StepTimer const& timer,ShotManager* shotmanager) ;
-	void Render(DirectX::SpriteBatch*) ;
+	virtual void Render(DirectX::SpriteBatch*) ;
 	void MoveUpdate(DirectX::SimpleMath::Vector2 vec);
 
 	DirectX::SimpleMath::Vector2 GetPosition() { return position; }
@@ -33,7 +33,7 @@ public:
 	void SetSpeed(float speed) { this->speed = speed; }
 
 	bool GetIsAlive() { return isAlive; }
-	void SetIsAlive() { this->isAlive = isAlive; }
+	void SetIsAlive(bool isAlive) { this->isAlive = isAlive; }
 
 	Collider* GetCollider() { return collider; }
 	void SetCollider(Collider *collider ) { this->collider = collider; }

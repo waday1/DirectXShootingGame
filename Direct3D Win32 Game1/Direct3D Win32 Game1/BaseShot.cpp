@@ -6,7 +6,7 @@ using namespace DirectX::SimpleMath;
 
 
 
-BaseShot::BaseShot(DirectX::SimpleMath::Vector2 pos, float speed, float scale, float angle, bool isAlive)
+BaseShot::BaseShot(DirectX::SimpleMath::Vector2 pos, float speed, float scale, float angle, bool isAlive, ShotCharacter character )
 {
 
 	SetPosition(pos);
@@ -15,6 +15,8 @@ BaseShot::BaseShot(DirectX::SimpleMath::Vector2 pos, float speed, float scale, f
 	SetScale(scale);
 	SetAngle(angle / 180 * PI);
 	SetIsAlive(isAlive);
+	SetCharacter(character);
+	SetCollider(new CircleCollider(pos, 12));
 }
 
 
@@ -34,6 +36,7 @@ void BaseShot::Update(DX::StepTimer const & timer)
 	{
 		isAlive = false;
 	}
+	GetCollider()->SetPosition(GetPosition());
 }
 
 

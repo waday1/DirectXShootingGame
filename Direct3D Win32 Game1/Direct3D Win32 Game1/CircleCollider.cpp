@@ -37,7 +37,7 @@ bool CircleCollider::CircleIntersects(DirectX::SimpleMath::Vector2 otherPos, flo
 	x = (GetPosition().x - otherPos.x);
 	y = (GetPosition().y - otherPos.y);
 	r = radius + otherRadius;
-	if (r*r < x*x + y*y)
+	if (r*r > x*x + y*y)
 	{
 		return true;
 	}
