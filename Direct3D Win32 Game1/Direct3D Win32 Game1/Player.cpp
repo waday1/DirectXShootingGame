@@ -17,7 +17,7 @@ Player::Player(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath:
 
 	SetScale(scale);
 	SetSpeed(speed);
-	SetCollider(new BoxCollider(pos, texture->GetOrigin()));
+	SetCollider(new CircleCollider(pos, texture->GetOrigin().x));
 }
 
 

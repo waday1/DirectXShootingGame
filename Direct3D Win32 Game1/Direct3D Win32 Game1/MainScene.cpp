@@ -78,7 +78,7 @@ void MainScene::Render()
 	_itow_s(enemy->GetPosition().x - enemy->GetCollider()->GetSize().x, wStr, 10);//•ÏŠ·—pŠÖ”
 	m_font->DrawString(m_spriteBatch.get(), wStr, enemy->GetPosition() + enemy->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
 
-	_itow_s(enemy->GetPosition().x + enemy->GetCollider()->GetSize().x, wStr, 10);//•ÏŠ·—pŠÖ”
+	_itow_s(enemy->GetPosition().x + enemy->GetCollider()->GetRadius(), wStr, 10);//•ÏŠ·—pŠÖ”
 	m_font->DrawString(m_spriteBatch.get(), wStr, enemy->GetPosition() - enemy->GetCollider()->GetSize(), Colors::White, 0.f, Vector2::Zero);
 
 	if(player->GetCollider()->Intersects(enemy->GetCollider()))

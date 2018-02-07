@@ -1,5 +1,7 @@
 #pragma once
-class CircleCollider
+#include "Collider.h"
+class CircleCollider :
+	public Collider
 {
 public:
 	CircleCollider();
@@ -8,6 +10,11 @@ public:
 
 	virtual float GetRadius() { return radius; }
 	virtual void SetRadius(float radius) { this->radius = radius; }
+	bool Intersects(Collider* collider);
+
+private:
+	//‰~“¯Žm‚Ì”»’è
+	bool CircleIntersects(DirectX::SimpleMath::Vector2 otherPos, float otherRadius);
 private:
 	float radius;
 };

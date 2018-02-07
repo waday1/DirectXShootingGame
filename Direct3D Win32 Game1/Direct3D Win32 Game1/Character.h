@@ -5,6 +5,7 @@
 #include"ShotManager.h"
 #include"Collider.h"
 #include"BoxCollider.h"
+#include"CircleCollider.h"
 ///<summry>
 ///プレイヤーと敵の基底クラス
 ///</summary>
