@@ -59,3 +59,33 @@ bool InputManager::IsKeyDown(DirectX::Keyboard::Keys key)
 
 	return isDown;
 }
+
+bool InputManager::IsJustKeyUp(DirectX::Keyboard::Keys key)
+{
+	bool up = false;
+
+	if (keyboard)
+	{
+		if (oldKeyboardState.IsKeyDown(key) && currentKeyboardState.IsKeyUp(key))
+		{
+			up = true;
+		}
+	}
+
+	return up;
+}
+
+bool InputManager::IsKeyUp(DirectX::Keyboard::Keys key)
+{
+	bool isUp = false;
+
+	if (keyboard)
+	{
+		if (currentKeyboardState.IsKeyUp(key))
+		{
+			isUp = true;
+		}
+	}
+
+	return isUp;
+}

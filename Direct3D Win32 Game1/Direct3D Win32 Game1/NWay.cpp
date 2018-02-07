@@ -36,11 +36,11 @@ bool NWay::Update(DX::StepTimer const& timer, ShotManager * shotmanager, DirectX
 			{
 				if (i % 2 == 0)
 				{
-					shotmanager->SetShot(BaseShot(currentPos, speed, size, baseAngle + angle*((i + 1) / 2 ), true, character));
+					shotmanager->SetShot(BaseShot(currentPos, speed, size, baseAngle + angle*((i + 2) / 2 ), true, character));
 				}
 				else
 				{
-					shotmanager->SetShot(BaseShot(currentPos, speed, size, baseAngle - angle*((i + 1) / 2 ), true, character));
+					shotmanager->SetShot(BaseShot(currentPos, speed, size, baseAngle - angle*((i + 2) / 2 ), true, character));
 				}
 			}
 			
@@ -64,12 +64,12 @@ bool NWay::Update(DX::StepTimer const& timer, ShotManager * shotmanager, DirectX
 				}
 			}
 		}
-		InitializeTime();
+		currentlTime = 0;
 	}
 	return false;
 }
 
 void NWay::InitializeTime()
 {
-	currentlTime = 0;
+	currentlTime = interbalTime;
 }

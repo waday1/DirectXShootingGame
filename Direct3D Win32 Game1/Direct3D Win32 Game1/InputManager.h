@@ -11,6 +11,8 @@ public:
 
 	static bool IsJustKeyDown(DirectX::Keyboard::Keys);
 	static bool IsKeyDown(DirectX::Keyboard::Keys);
+	static bool IsJustKeyUp(DirectX::Keyboard::Keys);
+	static bool IsKeyUp(DirectX::Keyboard::Keys);
 
 private:
 	static std::unique_ptr<DirectX::Keyboard> keyboard;

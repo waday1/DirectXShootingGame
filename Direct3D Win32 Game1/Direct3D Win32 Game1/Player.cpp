@@ -20,7 +20,7 @@ Player::Player(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath:
 	SetSpeed(speed);
 	SetCollider(new CircleCollider(pos, collisionTexture->GetOrigin().x));
 
-	SetCurrentGenerater(new NWay(3, 20, 200, 1, 0.2f,0, ShotCharacter::S_Player));
+	SetCurrentGenerater(new NWay(3, 10, 300, 1, 0.2f,0, ShotCharacter::S_Player));
 }
 
 
@@ -67,6 +67,10 @@ void Player::Shot(DX::StepTimer const& timer, ShotManager * shotmanager)
 	if (InputManager::IsKeyDown(Keyboard::Z))
 	{
 		GetCurrentGenerater()->Update(timer,shotmanager,GetPosition(),Vector2(GetPosition().x,GetPosition().y-100));
+	}
+	else if(InputManager::IsJustKeyUp(Keyboard::Z))
+	{
+		GetCurrentGenerater()->InitializeTime();
 	}
 }
 
