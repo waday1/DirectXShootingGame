@@ -75,24 +75,15 @@ Scene* MainScene::Update(Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice, Micr
 void MainScene::Render()
 {
 	m_spriteBatch->Begin();
-
-	if (InputManager::IsKeyDown(Keyboard::A))
-	{
-		m_font->DrawString(m_spriteBatch.get(), L"Main", Vector2::Zero, Colors::Red, 0.f, Vector2::Zero);
-	}
-	else
-	{
-		m_font->DrawString(m_spriteBatch.get(), L"Main", Vector2::Zero, Colors::Blue, 0.f, Vector2::Zero);
-	}
-
-	const wchar_t* output = L"Hello World";
+	const wchar_t* output = L"Enemy Hp";
 
 	Vector2 origin = m_font->MeasureString(output) / 2.f;
 
+	m_font->DrawString(m_spriteBatch.get(), output, Vector2(0, 0),Colors::White, 0.f, Vector2::Zero);
 
 	wchar_t wStr[12];//•ÏŠ·Œã‚Ì•¶Žš—ñ
 	_itow_s(enemy->GetLife(), wStr, 10);//•ÏŠ·—pŠÖ”
-	m_font->DrawString(m_spriteBatch.get(), wStr, Vector2(0,200), Colors::White, 0.f, Vector2::Zero);
+	m_font->DrawString(m_spriteBatch.get(), wStr, Vector2(origin.x*2,0), Colors::White, 0.f, Vector2::Zero);
 
 
 	if (player->GetIsAlive())
