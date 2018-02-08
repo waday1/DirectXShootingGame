@@ -22,6 +22,8 @@ Enemy::Enemy(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath::V
 
 	SetLife(life);
 
+	SetIsAlive(isAlive);
+
 	SetCollider(new CircleCollider(pos,texture->origin.x));
 
 	SetPattern(stageNum);

@@ -18,6 +18,8 @@ Player::Player(Microsoft::WRL::ComPtr<ID3D11Device> Device, DirectX::SimpleMath:
 
 	SetScale(scale);
 	SetSpeed(speed);
+
+	SetIsAlive(isAlive);
 	SetCollider(new CircleCollider(pos, collisionTexture->GetOrigin().x));
 
 	SetCurrentGenerater(new NWay(3, 10, 400, 1, 0.1f,0, ShotCharacter::S_Player));
